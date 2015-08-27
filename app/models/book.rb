@@ -10,17 +10,5 @@ class Book < Chapter
     end
   end
 
-  private
-  def chapter(*attrs, &block)
-    chapter = Chapter.new(*attrs)
-    block.arity<1 ? chapter.instance_eval(&block) : block.call(chapter) if block_given?
-    self.children << chapter
-  end
-
-  def article(*attrs, &block)
-    article = Article.new(*attrs)
-    block.arity<1 ? article.instance_eval(&block) : block.call(article) if block_given?
-    self.children << article
-  end
 
 end

@@ -23,17 +23,19 @@ class Chapter
     Recipe.where(:parent_ids => self.id)
   end
 
-  private
-  def article(*attrs, &block)
-    article = Article.new(*attrs)
-    block.arity<1 ? article.instance_eval(&block) : block.call(article) if block_given?
-    self.children << article
+  def method_missing(method_sym, *args, &block)
+    write(method_sym, *args, &block)
   end
 
-  def chapter(*attrs, &block)
-    chapter = Chapter.new(*attrs)
-    block.arity<1 ? chapter.instance_eval(&block) : block.call(chapter) if block_given?
-    self.children << chapter
+  private
+  def write(part, *attrs, &block)
+    begin
+      child = Object.const_get(part.to_s.humanize).new(*attrs)
+      block.arity<1 ? child.instance_eval(&block) : block.call(child) if block_given?
+      self.children << child
+    rescue NameError => e
+      p e
+    end
   end
 
 end

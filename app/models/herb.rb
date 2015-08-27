@@ -1,0 +1,3 @@
+class Herb < Chapter
+
+end

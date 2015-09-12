@@ -13,8 +13,12 @@ class Recipe < Chapter
   has_many :tags, validate: false
 
   private
-  def ingredient(*attrs)
+  def ii(*attrs)
     self.ingredients.build(*attrs)
+  end
+
+  def memo(str)
+    self.summary = str
   end
 
 end

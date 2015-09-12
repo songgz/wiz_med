@@ -16,7 +16,11 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(function(){
+    $(document).foundation();
+    var converter = new showdown.Converter(), m = $('p.md');
+    m.html(converter.makeHtml(m.text()));
+});
 
 function sideNav() {
     if ($(window).width() < 769) {

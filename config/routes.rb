@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   resources :herbs
   resources :tags
   resources :drugs
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   resources :catalogs
   resources :books
   resources :prescriptions
-  resources :recipes
+  resources :articles
   resources :recipes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

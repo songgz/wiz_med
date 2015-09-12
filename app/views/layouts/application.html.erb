@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WizMed</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js"></script>
   <%= javascript_include_tag 'vendor/modernizr' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -82,18 +83,7 @@
 
     <!-- main content goes here -->
     <section>
-      <div>
-      <h1 class="text-center">Something Important</h1>
-      <img src="http://placeimg.com/1640/480/arch/grayscale" alt="" />
-      <h1 class="text-center">Something Important</h1>
-      <img src="http://placeimg.com/1640/480/arch/grayscale" alt="" />
-      <h1 class="text-center">Something Important</h1>
-      <img src="http://placeimg.com/1640/480/arch/grayscale" alt="" />
-      <h1 class="text-center">Something Important</h1>
-      <img src="http://placeimg.com/1640/480/arch/grayscale" alt="" />
-      <h1 class="text-center">Something Important</h1>
-      <img src="http://placeimg.com/1640/480/arch/grayscale" alt="" />
-      </div>
+      <%= yield %>
     </section>
 
 

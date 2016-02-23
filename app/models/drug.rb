@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Drug < Chapter
 
   field :process, type: Array

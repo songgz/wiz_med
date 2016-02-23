@@ -1,17 +1,22 @@
 <p id="notice"><%= notice %></p>
 <h2><%= @article.title %></h2>
-<p class="md"><%= @article.content%></p>
+<p class="md"><%= @article.content %>
 <% @article.recipes.each do |recipe| %>
-    <p>
-        <h4><%= recipe.title %></h4>
-        <ul>
-          <% recipe.ingredients.each do |ingr| %>
-            <li><%= ingr.title %><%= ingr.qty %><%= ingr.unit %></li>
-          <% end %>
-        </ul>
-        <p class=""><%= recipe.summary %></p>
-    </p>
-<% end%>
+  [<%= recipe.title %>]: #<%= recipe.id %>
+<% end %>
+</p>
+
+<% @article.recipes.each do |recipe| %>
+    <a id="<%= recipe.id %>"><%= recipe.title %></a>
+    <ul>
+      <% recipe.ingredients.each do |ingr| %>
+          <li><%= ingr.title %><%= ingr.qty %><%= ingr.unit %></li>
+      <% end %>
+    </ul>
+    <p class=""><%= recipe.summary %></p>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

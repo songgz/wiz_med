@@ -1,10 +1,12 @@
+# encoding: utf-8
+
 class Ingredient
   include Mongoid::Document
 
-  field :title, type: String #原书药名
-  field :qty, type: String   #原书药量
-  field :unit, type: String  #原书单位
-  field :note, type: String  #原书备注
+  field :title, type: String #原
+  field :qty, type: String   #
+  field :unit, type: String  #
+  field :note, type: String  #
   field :amount, type: Float
 
   belongs_to :drug

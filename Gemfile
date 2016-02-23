@@ -1,10 +1,10 @@
-source 'http://rubygems.org'
-
+#source 'http://rubygems.org'
+source 'https://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '~>4.2.5'
 # Use mongodb as the database for mongoid
-gem 'mongoid', '4.0.2'
+gem 'mongoid', '~>5.0.0'
 gem 'mongoid-tree', '~>2.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

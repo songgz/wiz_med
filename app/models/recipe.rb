@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Recipe < Chapter
 
   field :function, type: String

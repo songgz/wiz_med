@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Book < Chapter
 
   field :year, type: Integer

@@ -1,97 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WizMed</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <script type="text/javascript" src="https://cdn.rawgit.com/showdownjs/showdown/master/dist/showdown.min.js"></script>
-  <%= javascript_include_tag 'vendor/modernizr' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">My Site</a></h1>
-    </li>
-    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-  <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="active"><a href="#">Right Button Active</a></li>
-      <li class="has-dropdown">
-        <a href="#">Right Button Dropdown</a>
-        <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
-          <li class="active"><a href="#">Active link in dropdown</a></li>
-        </ul>
-      </li>
-    </ul>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
 
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li><a href="#">Left Nav Button</a></li>
-    </ul>
-  </section>
-</nav>
+    <%= csrf_meta_tags %>
+  </head>
 
-<!-- Left Nav Sidebar -->
+  <body>
 
-<div class="off-canvas-wrap move-right" data-offcanvas>
-  <div class="inner-wrap">
+  <%= yield %>
 
-    <nav class="tab-bar">
-      <section class="left-small">
-        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
-    </nav>
-
-
-    <!-- Off Canvas Menu -->
-    <aside class="left-off-canvas-menu">
-
-      <div class="icon-bar vertical five-up">
-        <a class="item">
-          <i class="fi-home"></i>
-          <label>Home</label>
-        </a>
-        <a class="item">
-          <i class="fi-home"></i>
-          <label>Bookmark</label>
-        </a>
-        <a class="item">
-          <i class="fi-home"></i>
-          <label>Info</label>
-        </a>
-        <a class="item">
-          <i class="fi-home"></i>
-          <label>Mail</label>
-        </a>
-        <a class="item">
-          <i class="fi-home"></i>
-          <label>Like</label>
-        </a>
-      </div>
-
-    </aside>
-
-    <!-- main content goes here -->
-    <section>
-      <%= yield %>
-    </section>
-
-
-
-    <!-- close the off-canvas menu -->
-    <a class="exit-off-canvas"></a>
-
-  </div>
-</div>
-</body>
+  <script>
+    $(document).foundation();
+  </script>
+  </body>
 </html>

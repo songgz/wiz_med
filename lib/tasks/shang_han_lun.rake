@@ -10,7 +10,8 @@ namespace :shang_han_lun do
         article title:'伤寒例'
         article title:'辨大阳病痉湿喝'
         article title:'辨大阳病' do
-          text %q{* __大阳之为病，脉浮，头项强痛而恶寒。__
+          text %q{
+* __大阳之为病，脉浮，头项强痛而恶寒。__
 * __大阳病，发热汗出恶风，脉缓者，名为中风。__
 * __大阳病，或已发热，或未发热，必恶寒体痛、呕逆，脉阴阳俱紧者，名曰伤寒。__
     + 伤寒一日，大阳受之，脉若静者，为不传。颇欲吐，若躁烦，脉数急者，为传也。
@@ -136,7 +137,7 @@ namespace :shang_han_lun do
             ii title:'大枣', qty:'十二枚', note:'擘'
             memo %q{右六味，以水八升，煮取三升，去滓，温服一升，小便利则愈^[本云桂枝汤，今去桂枝加茯苓白术]。}
           end
-          recipe title:'甘草干姜汤方' do
+          recipe title:'甘草干姜汤' do
             ii title:'甘草', qty:'四两', note:'炙'
             ii title:'干姜', qty:'二两'
             memo %q{上二味，以水三升，煮取一升五合，去滓，分温再服。}

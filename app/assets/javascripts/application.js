@@ -14,25 +14,13 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require marked
+//= require overlap
+// require showdown
 //= require_tree .
 
-$(function(){
-    $(document).foundation();
-    var converter = new showdown.Converter(), m = $('p.md');
-    m.html(converter.makeHtml(m.text()));
-});
 
-function sideNav() {
-    if ($(window).width() < 769) {
-        $('.off-canvas-wrap').removeClass('move-right');
-        //$('.left-off-canvas-toggle').show();
-    } else {
-        $('.off-canvas-wrap').addClass('move-right');
-        //$('.left-off-canvas-toggle').hide();
-    }
-}
 
-$(window).resize(function() {
-    sideNav();
-});
+
+
 

@@ -1,20 +1,64 @@
-<p id="notice"><%= notice %></p>
-<h2><%= @article.title %></h2>
-<p class="md"><%= @article.content %>
+<div class="off-canvas-wrapper">
+  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+    <!-- off-canvas title bar  -->
+    <div class="title-bar">
+      <div class="title-bar-left">
+        <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+        <span class="title-bar-title"><%= @article.title %></span>
+      </div>
+    </div>
+
+    <!-- off-canvas left menu -->
+    <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas data-position="left">
+      <ul class="vertical dropdown menu" data-dropdown-menu>
+        <% @article.parent.articles.each do |article| %>
+          <li><%= link_to article.title, article %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="off-canvas-content" data-off-canvas-content>
+
+          <div class="page-wrapper" tabindex="-1" role="main">
+            <div class="page-inner">
+              <p class="md">
+<%= @article.content %>
 <% @article.recipes.each do |recipe| %>
   [<%= recipe.title %>]: #<%= recipe.id %>
-<% end %>
-</p>
+<% end %></p>
+              <% @article.recipes.each do |recipe| %>
+                  <a id="<%= recipe.id %>"><%= recipe.title %></a>
+                  <ul>
+                    <% recipe.ingredients.each do |ingr| %>
+                        <li><%= ingr.title %><%= ingr.qty %><%= ingr.unit %></li>
+                    <% end %>
+                  </ul>
+                  <p class=""><%= recipe.summary %></p>
+              <% end %>
 
-<% @article.recipes.each do |recipe| %>
-    <a id="<%= recipe.id %>"><%= recipe.title %></a>
-    <ul>
-      <% recipe.ingredients.each do |ingr| %>
-          <li><%= ingr.title %><%= ingr.qty %><%= ingr.unit %></li>
-      <% end %>
-    </ul>
-    <p class=""><%= recipe.summary %></p>
-<% end %>
+            </div>
+            <script>
+              var m = $('p.md');
+              m.html(marked(m.text()));
+
+              //var converter = new showdown.Converter();
+              //m.html(converter.makeHtml(m.text()));
+            </script>
+
+          </div>
+        <a href="../index.html" class="navigation navigation-prev " ><span><<</span></a>
+        <a href="../introduction/what.html" class="navigation navigation-next "><span>>></span></a>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+<h2><%= @article.title %></h2>
 
 
 
